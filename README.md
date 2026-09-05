@@ -37,23 +37,38 @@ pwsh .\bin\Debug\net8.0\playwright.ps1 install
 dotnet test
 ```
 
-Run a tag:
-```powershell
-dotnet test --filter "TestCategory=smoke"
+## Cleanup
+
+```bash
+cmd /c rmdir /s /q bin
+
+cmd /c rmdir /s /q allure-report
+
+cmd /c rmdir /s /q allure-results
 ```
 
-## Allure
-Generate results with:
-```powershell
+## Run all BDD tests
+
+```bash
 dotnet test
 ```
 
-If Allure CLI is installed:
-```powershell
-allure serve allure-results
+## Run a specific tag
+
+```bash
+dotnet test --filter "TestCategory=amoke"
 ```
 
 The framework captures a PNG screenshot in Allure when a Gherkin step fails.
+
+## Allure
+
+The Reqnroll Allure adapter writes results to `allure-results` at the solution/project level using `allureConfig.json`.
+
+```bash
+allure generate bin/Debug/net8.0/allure-results -o allure-report --clean
+allure open allure-report
+```
 
 ## Browser
 Default browser is Chromium/Chrome. Change:
