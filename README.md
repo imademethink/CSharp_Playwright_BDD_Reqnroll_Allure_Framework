@@ -55,12 +55,12 @@ pwsh .\bin\Debug\net8.0\playwright.ps1 install
 ## Run a specific tag
 
 ```bash
-dotnet test --filter "TestCategory=smoke"
+dotnet test --filter "TestCategory=smoke"   --framework net8.0 
 ```
 
 ## Run all BDD tests
 ```powershell
-dotnet test
+dotnet test --framework net8.0 
 ```
 
 ## Allure Report
