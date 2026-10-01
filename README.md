@@ -24,20 +24,59 @@ PlaywrightCSharpReqnroll/
 ├── PlaywrightCSharpReqnroll.csproj
 └── README.md
 ```
+---
 
-## Setup
+# 🚀 Getting Started
+
+## Clone Repository
+
+```bash
+git clone https://github.com/imademethink/CSharp_Playwright_BDD_Reqnroll_Allure_Framework.git
+```
+
+---
+
+## Navigate to Folder
+
+```bash
+cd CSharp_Playwright_BDD_Reqnroll_Allure_Framework
+```
+
+---
+
+## Do the setup
+
 ```powershell
 dotnet restore
 dotnet build
 pwsh .\bin\Debug\net8.0\playwright.ps1 install
 ```
 
-## Run
+## Run a specific tag
+
+```bash
+dotnet test --filter "TestCategory=smoke"
+```
+
+## Run all BDD tests
 ```powershell
 dotnet test
 ```
 
-## Cleanup
+## Allure Report
+
+The Reqnroll Allure adapter writes results to `allure-results` at the solution/project level using `allureConfig.json`.
+
+The framework captures a PNG screenshot in Allure when a Gherkin step fails.
+
+```bash
+Download Allure report binary from path : https://github.com/allure-framework/allure2/releases and add this path on System variable.
+
+allure generate bin/Debug/net8.0/allure-results -o allure-report --clean
+allure open allure-report
+```
+
+## Cleanup (optional)
 
 ```bash
 cmd /c rmdir /s /q bin
@@ -47,35 +86,17 @@ cmd /c rmdir /s /q allure-report
 cmd /c rmdir /s /q allure-results
 ```
 
-## Run all BDD tests
+## Browser change
+Default browser is Chromium/Chrome. 
 
-```bash
-dotnet test
-```
-
-## Run a specific tag
-
-```bash
-dotnet test --filter "TestCategory=amoke"
-```
-
-The framework captures a PNG screenshot in Allure when a Gherkin step fails.
-
-## Allure
-
-The Reqnroll Allure adapter writes results to `allure-results` at the solution/project level using `allureConfig.json`.
-
-```bash
-allure generate bin/Debug/net8.0/allure-results -o allure-report --clean
-allure open allure-report
-```
-
-## Browser
-Default browser is Chromium/Chrome. Change:
+Change it from below file:
 ```text
 Configuration/TestSettings.cs
+
+Hooks/TestHooks.cs
 ```
-to `firefox` or `edge`.
+to `firefox` or `edge` (default is `chrome`).
+
 
 ## Notes
 - Gherkin feature files are preserved from the original framework.
