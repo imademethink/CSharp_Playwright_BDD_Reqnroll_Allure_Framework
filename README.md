@@ -1,6 +1,14 @@
 # C# Playwright BDD Automation Framework
 
 
+---
+
+<img width="1672" height="941" alt="Ready To Use Automation Framework - C sharp, Playwright, BDD Reqnroll Nunit" src="https://github.com/user-attachments/assets/cb78a2bc-6eee-4ec5-b85a-1d9078e34d58" />
+
+# YouTube Video Link
+
+---
+
 ## Stack
 - C# / .NET 8
 - Microsoft Playwright 1.62.0
